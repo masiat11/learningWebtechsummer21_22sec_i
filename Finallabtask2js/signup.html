@@ -1,0 +1,134 @@
+
+<html>
+<head>
+	<title>registration Form Submission</title>
+</head>
+<body>
+		<form  onsubmit ="return validate()" method="post" enctype="">
+			<fieldset>
+				<legend>Registration</legend>
+				<table>
+					<tr>
+						<td>Username</td></tr>
+						<tr>
+						<td><input type="text" name="username"id="username" value=""></td>
+						<td id=ErrUserName"></td>
+					</tr>
+					<tr>
+						<td>ID</td>
+						</tr>
+						<tr>
+						<td><input type="Number" name="id" id = "id"value=""></td>
+						<td id=ErrId"></td>
+					</tr>
+					
+					<tr>
+						<td>password</td></tr>
+						<tr>
+						<td><input type="password" name="password" id ="password"value=""></td>
+						<td id=ErrPassword"></td>
+					</tr>
+					<tr>
+						<td>confirm_password</td></tr>
+						<tr>
+						<td><input type="password" name="confirm" id="confirm"value=""></td>
+						<td id=ErrCpassword"></td>
+					</tr>
+					<tr>
+						<td>Phone_Number</td></tr>
+						<tr>
+						<td><input type="text" name="Pnumber" id="Pnumber"value=""></td>
+						<td id="ErrPnumber"></td>
+					</tr>
+					<tr>
+						<td>Email</td></tr>
+						<tr>
+						<td><input type="email" name="email" id="email"value=""></td>
+						<td id="ErrEmail"></td>
+					</tr>
+						<tr>
+						<td>DOB</td></tr>
+						<tr>
+						<td><input type="date" name="dob" id="dob"value=""></td>
+						<td id="ErrDob"></td>
+					</tr>
+					<tr>
+						<td>Address</td></tr>
+						<tr>
+						<td >
+							<textarea style="height: 70px;width: 180px;"></textarea>
+						</td>
+					</tr>
+					<td><br></td>
+					
+					<tr>
+						<td>
+							<input type="submit" name="" id ="submit" value="signup">
+							<a href="signup.html"> Signin </a>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+		<script>
+			function validate(){
+				let username = document.getElementById("username").value;
+				
+				if (username != ""){
+					return true ;
+				}else{
+					document.getElementById('ErrUserName').innerHTML= "Username not found";
+					return false ;
+				}
+
+				let id = document.getElementById("id").value;
+				if (id != ""){
+					return true ;
+				}else{
+					document.getElementById('ErrId').innerHTML= "Id not found";
+					return false ;
+				}
+
+				let password = document.getElementById("password").value;
+				if (password != ""){
+					return true ;
+				}else{
+					document.getElementById('ErrPassword').innerHTML= "Password not found";;
+					return false ;
+				}
+
+				let confirm = document.getElementById("confirm").value;
+				if (confirm != ""){
+					return true ;
+				}else{
+					document.getElementById('ErrCpassword').innerHTML= "password didn't matched";;
+					return false ;
+				}
+
+				let Pnumber = document.getElementById("Pnumber").value;
+				if (Pnumber != ""){
+					return true ;
+				}else{
+					document.getElementById('ErrPnumber').innerHTML= "Phone number doesn't exist";;
+					return false ;
+				}
+
+				let email = document.getElementById("email").value;
+				if (email != ""){
+					return true ;
+				}else{
+					document.getElementById('ErrEmail').innerHTML= "Email not found";
+					return false ;
+				}
+
+				let dob = document.getElementById("dob").value;
+				if (dob!= ""){
+					return true ;
+				}else{
+					document.getElementById('ErrDob').innerHTML= "Dob not found";;
+					return false ;
+				}
+			}
+		</script>
+</body>
+</html>
