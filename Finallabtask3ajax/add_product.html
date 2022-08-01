@@ -1,0 +1,83 @@
+
+<?php 
+	if(!isset($_COOKIE['status'])){
+		header('location: login.html');
+	}
+?>
+
+<html>
+<head>
+	<title>Add Product to cart</title>
+</head>
+<body>
+		<a href="home.php">Back</a> | 
+		<a href="logout.php"> logout </a>
+
+		
+		<form action="add_producterInfoCheck.php" method="post" enctype="">
+			<fieldset>
+				<legend>product adding </legend>
+				<table>
+					<tr>
+						<td>Name</td></tr>
+						<tr>
+						<td><input type="text" name="name"id="name" value=""onclick="ajax()"/> </td>
+					</tr>
+					<tr>
+						<td>ID</td>
+						</tr>
+						<tr>
+						<td><input type="Number" name="id" id="id"value=""onclick="ajax()"/> </td>
+					</tr>
+					<tr>
+						<td>Price</td></tr>
+						<tr>
+						<td><input type="Number" name="price"id="price" value=""onclick="ajax()"/> </td>
+					</tr>
+							
+					
+					<td><br></td>
+					
+					<tr>
+						<td>
+							<input type="submit" name="" value="Add to cart"onclick="alert('product added to the cart ')">
+							
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+
+		 <script>
+            function validate(){
+                if(name != ""){
+                    return true;
+                }else{
+                    alert('null name');
+                    return false;
+                }
+            }
+            function ajax(){ 
+                let name = document.getElementById('name').value;
+                let id = document.getElementById('id').value;
+                let price = document.getElementById('price').value;
+                let product = {'name' : name, 'id': id , 'price':price};
+                let json = JSON.stringify(product);
+
+                let xhttp = new XMLHttpRequest();
+                 xhttp.open('POST','add_producterInfoCheck.php', true);
+                xhttp.onreadystatechange = function (){                    
+                    if(this.readyState == 4 && this.status == 200){
+                       // let product = JSON.parse(this.responseText);
+                       // document.getElementById('head').innerHTML = product.name;
+                        alert(this.responseText);
+                    }
+                }
+
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+                xhttp.send('data='+json);        
+            }
+        </script>
+
+</body>
+</html>
